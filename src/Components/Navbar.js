@@ -14,6 +14,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems: 'stretch',
     paddingRight: 0,
+    paddingLeft: '.5rem',
   },
   title: {
     textTransform: 'uppercase',
