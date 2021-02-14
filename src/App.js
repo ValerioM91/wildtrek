@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, ThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Navbar from './Components/Navbar';

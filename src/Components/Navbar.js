@@ -12,7 +12,6 @@ const useStyles = makeStyles(() => ({
   },
   toolbar: {
     display: 'flex',
-    // flexWrap: 'wrap',
     alignItems: 'stretch',
     paddingRight: 0,
   },
@@ -20,7 +19,6 @@ const useStyles = makeStyles(() => ({
     textTransform: 'uppercase',
     marginTop: '10px',
     padding: '.5rem',
-    // alignSelf: 'center',
     color: '#eee',
     textDecoration: 'none',
   },
@@ -39,12 +37,7 @@ const useStyles = makeStyles(() => ({
     color: '#FFF',
   },
   btn: {
-    backgroundImage: 'linear-gradient(45deg, #FE6B8B 0%, #FF8E53 90%)',
-    backgroundClip: 'text',
-    // WebkitBackgroundClip: 'text',
-    // background: 'rgba(0,0,0,.3)',
     boxShadow: 'none',
-    // border: '1px solid #FF8E53',
     margin: '10px',
   },
 }));
