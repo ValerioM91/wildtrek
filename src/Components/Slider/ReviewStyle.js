@@ -20,6 +20,7 @@ export default makeStyles(() => ({
   },
   text: {
     textAlign: 'center',
+    maxWidth: '600px',
   },
 
   title: {

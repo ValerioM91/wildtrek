@@ -35,6 +35,27 @@ const useStyles = makeStyles({
     textDecoration: 'none',
     paddingRight: '2rem',
   },
+  facebook: {
+    color: '#eee',
+    textDecoration: 'none',
+    paddingRight: '2rem',
+    transition: 'all .2s',
+    '&:hover': { color: '#4267B2' },
+  },
+  twitter: {
+    color: '#eee',
+    textDecoration: 'none',
+    paddingRight: '2rem',
+    transition: 'all .2s',
+    '&:hover': { color: '#1DA1F2' },
+  },
+  instagram: {
+    color: '#eee',
+    textDecoration: 'none',
+    paddingRight: '2rem',
+    transition: 'all .2s',
+    '&:hover': { color: '#C13584;' },
+  },
 });
 
 const Footer = () => {
@@ -60,14 +81,14 @@ const Footer = () => {
               WILDTREK
             </Typography>
             <div className={classes.socials}>
-              <a href="#" className={classes.link}>
+              <a href="#" className={classes.facebook}>
                 <FacebookIcon fontSize="large" />
               </a>
-              <a href="#" className={classes.link}>
+              <a href="#" className={classes.twitter}>
                 <TwitterIcon fontSize="large" />
               </a>
 
-              <a href="#" className={classes.link}>
+              <a href="#" className={classes.instagram}>
                 <InstagramIcon fontSize="large" />
               </a>
             </div>

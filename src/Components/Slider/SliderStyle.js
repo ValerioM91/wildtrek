@@ -13,6 +13,7 @@ export default makeStyles(() => {
       position: 'relative',
       minHeight: '350px',
       overflow: 'hidden',
+      maxWidth: '700px',
     },
     btn: {
       textAlign: 'center',

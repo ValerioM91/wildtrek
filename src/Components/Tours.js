@@ -15,6 +15,11 @@ const useStyles = makeStyles({
       transform: 'skewY(5deg)',
     },
   },
+  container: {
+    width: '100%',
+    margin: 0,
+  },
+
   h3: {
     textTransform: 'uppercase',
     paddingBottom: '2rem',
@@ -40,7 +45,12 @@ const Tours = () => {
       >
         Our best tours
       </Typography>
-      <Grid container justify="center" spacing={3}>
+      <Grid
+        container
+        justify="center"
+        spacing={3}
+        className={classes.container}
+      >
         {tours.map(tour => (
           <Grid
             item
