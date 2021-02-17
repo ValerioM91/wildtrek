@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     display: 'block',
   },
   container: {
+    width: '100%',
     margin: 'auto',
     padding: '2rem',
   },
