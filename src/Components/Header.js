@@ -45,7 +45,7 @@ const Header = () => {
           style={matches ? { fontSize: '2rem' } : { fontSize: '4rem' }}
           gutterBottom
         >
-          Explore the Nature
+          Explore Nature
         </Typography>
       </Fade>
       <Fade in timeout={{ enter: 2000 }}>
