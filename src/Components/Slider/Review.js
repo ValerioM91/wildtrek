@@ -2,21 +2,25 @@ import React from 'react';
 import { Avatar, Typography, Container } from '@material-ui/core';
 import useStyles from './ReviewStyle';
 
-const Review = ({ data, state }) => {
+const Review = ({ data, position }) => {
   const classes = useStyles();
 
-  const style = function (state) {
-    if (state === 'active') {
+  const style = function (position) {
+    if (position === 'active') {
       return { opacity: 1 };
-    } else if (state === 'previous') {
+    } else if (position === 'previous') {
       return { opacity: 0, transform: 'translateX(-100%)' };
-    } else if (state === 'next') {
+    } else if (position === 'next') {
       return { opacity: 0, transform: 'translateX(100%)' };
     }
   };
 
   return (
-    <Container maxWidth="md" className={classes.container} style={style(state)}>
+    <Container
+      maxWidth="md"
+      className={classes.container}
+      style={style(position)}
+    >
       <div className={classes.review}>
         <Typography variant="h5" color="secondary" className={classes.title}>
           {data.title}

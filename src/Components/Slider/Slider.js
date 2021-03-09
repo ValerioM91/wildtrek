@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Grid } from '@material-ui/core';
 import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
 import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined';
@@ -13,27 +13,32 @@ const Slider = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-  const [slide, setslide] = useState(data);
+  const [reviews, setReviews] = useState(data);
   const [index, setIndex] = useState(0);
+  const [timer, setTimer] = useState(true);
 
-  const nextReview = index => {
-    if (index === slide.length - 1) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
-  };
+  useEffect(() => {
+    if (index < 0) setIndex(reviews.length - 1);
+    if (index > reviews.length - 1) setIndex(0);
+  }, [index, reviews]);
 
-  const previousReview = index => {
-    if (index === 0) {
-      setIndex(slide.length - 1);
-    } else {
-      setIndex(index - 1);
+  useEffect(() => {
+    if (timer) {
+      let slider = setInterval(() => {
+        setIndex(index + 1);
+      }, 3000);
+      return () => clearInterval(slider);
     }
-  };
+  }, [index, timer]);
 
   return (
-    <Grid container className={classes.container} justify="center">
+    <Grid
+      container
+      className={classes.container}
+      justify="center"
+      onMouseOver={() => setTimer(false)}
+      onMouseLeave={() => setTimer(true)}
+    >
       <Grid
         item
         xs={1}
@@ -44,26 +49,22 @@ const Slider = () => {
           variant="contained"
           color="primary"
           size="small"
-          onClick={() => previousReview(index)}
+          onClick={() => setIndex(index - 1)}
         >
           <ArrowBackIosOutlinedIcon />
         </Button>
       </Grid>
       <Grid item xs={12} sm={6} style={{ margin: 0 }} className={classes.slide}>
-        {slide.map((review, i) => {
-          let state = '';
-          if (i === index) {
-            state = 'active';
-          } else if (
-            i === index - 1 ||
-            (index === 0 && i === slide.length - 1)
-          ) {
-            state = 'previous';
-          } else {
-            state = 'next';
-          }
+        {reviews.map((review, reviewIndex) => {
+          let position = 'next';
+          if (reviewIndex === index) position = 'active';
+          if (
+            reviewIndex === index - 1 ||
+            (index === 0 && reviewIndex === reviews.length - 1)
+          )
+            position = 'previous';
 
-          return <Review data={review} key={review.id} state={state} />;
+          return <Review data={review} key={review.id} position={position} />;
         })}
       </Grid>
       <Grid
@@ -76,7 +77,7 @@ const Slider = () => {
           variant="contained"
           color="primary"
           size="small"
-          onClick={() => previousReview(index)}
+          onClick={() => setIndex(index - 1)}
         >
           <ArrowBackIosOutlinedIcon />
         </Button>
@@ -87,7 +88,7 @@ const Slider = () => {
           color="primary"
           size="small"
           className={classes.btn}
-          onClick={() => nextReview(index)}
+          onClick={() => setIndex(index + 1)}
         >
           <ArrowForwardIosOutlinedIcon />
         </Button>

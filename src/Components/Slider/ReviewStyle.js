@@ -12,6 +12,11 @@ export default makeStyles(() => ({
     transition: 'all .6s ease',
   },
 
+  active: {
+    opacity: 1,
+  },
+  previous: { opacity: 0, transform: 'translateX(-100%)' },
+  next: { opacity: 0, transform: 'translateX(100%)' },
   review: {
     display: 'flex',
     flexDirection: 'column',
